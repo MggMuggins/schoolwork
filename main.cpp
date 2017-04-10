@@ -43,8 +43,7 @@ char pickComputer() {
     }
 }
 
-string didWin(char player) {
-    char computer = pickComputer();
+string didWin(char player, char computer) {
     //Make sure it's not a tie before we go and do a whole bunch of comparisons
     if (player == computer) {
         return "Tie";
@@ -98,21 +97,22 @@ string didWin(char player) {
 
 char promptUser() {
     char choice;
-    cout << "Please input the corresponding Char for your choice: " << endl;
+    cout << endl << "Please input the corresponding Char for your choice (Or \"N\" to get out): " << endl;
     cout << "Rock: R" << endl
         << "Paper: P" << endl
         << "Scissors: C" << endl
         << "Lizard: L" << endl
-        << "Spock: S" << endl;
+        << "Spock: S" << endl << endl;
     cin >> choice;
     return choice;
 }
 
 int main() {
-    char choice;
+    char choice, computer = pickComputer();
     choice = promptUser();
     while (choice != 'N') {
-        cout << "Winner is: " << didWin(choice) << endl;
+        cout << "Computer Picked: " << computer << endl;
+        cout << "Winner is: " << didWin(choice, computer) << endl;
         choice = promptUser();
     }
     return 0;
