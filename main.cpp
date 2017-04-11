@@ -29,7 +29,7 @@ using namespace std;
 char pickComputer() {  //function for random computer selection takes a random number and mods it by five
 	               //returns a different thing depending on the result of that
                        //function to determine who wins
-
+    rand(); //without this the first computer pick is always L
     int rngval = rand() % 5 + 1;
     switch (rngval) {
     case 1:
