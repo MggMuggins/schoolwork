@@ -14,12 +14,22 @@ Copyright 2017 Ethan Jett and SamwiseFilmore
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
+
+
+/*
+This is a game of Rock Paper Scisors lizard spock it is made for fun purposes only.
+
+*/
 #include <iostream>
 #include <cstdlib>
 
 using namespace std;
 
-char pickComputer() {
+char pickComputer() {  //function for random computer selection takes a random number and mods it by five
+	               //returns a different thing depending on the result of that
+                       //function to determine who wins
+
     int rngval = rand() % 5 + 1;
     switch (rngval) {
     case 1:
@@ -43,7 +53,7 @@ char pickComputer() {
     }
 }
 
-string didWin(char player, char computer) {
+string didWin(char player, char computer) { //This function determines who is the winer
     //Make sure it's not a tie before we go and do a whole bunch of comparisons
     if (player == computer) {
         return "Tie";
@@ -97,7 +107,7 @@ string didWin(char player, char computer) {
 
 char promptUser() {
     char choice;
-    cout << endl << "Please input the corresponding Char for your choice (Or \"N\" to get out): " << endl;
+    cout << endl << "Please input the corresponding Char for your choice (Or \"N\" to get out): " << endl; //user prompt.
     cout << "Rock: R" << endl
         << "Paper: P" << endl
         << "Scissors: C" << endl
@@ -112,7 +122,7 @@ int main() {
     choice = promptUser();
     while (choice != 'N') {
         cout << "Computer Picked: " << computer << endl;
-        cout << "Winner is: " << didWin(choice, computer) << endl;
+        cout << "Winner is: " << didWin(choice, computer) << endl; //shows the user the winner.
         choice = promptUser();
     }
     return 0;
